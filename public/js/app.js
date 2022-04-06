@@ -5507,11 +5507,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "App",
   data: function data() {
     return {
-      user: ''
+      user: ""
     };
   },
   computed: {
@@ -5521,7 +5541,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {
     if (this.isLoggedIn) {
-      this.$store.dispatch('getUser');
+      this.$store.dispatch("getUser");
     }
   },
   methods: {
@@ -5534,10 +5554,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.$store.dispatch('logout');
+                return _this.$store.dispatch("logout");
 
               case 2:
-                _this.$router.push('/login');
+                _this.$router.push("/login");
 
               case 3:
               case "end":
@@ -30205,74 +30225,91 @@ var render = function () {
     _c("nav", { staticClass: "navbar navbar-light bg-light" }, [
       _c("div", { staticClass: "container-fluid justify-content-center" }, [
         _vm.isLoggedIn
-          ? _c("ul", { staticClass: "nav nav-pills" }, [
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      class: { active: _vm.$route.name === "home" },
-                      attrs: { to: "/" },
-                    },
-                    [_vm._v("  Home")]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
+          ? _c(
+              "ul",
+              {
+                staticClass:
+                  "nav col-12 col-md-auto mb-2 justify-content-center mb-md-0",
+              },
+              [
                 _c(
-                  "button",
-                  {
-                    staticClass: "nav-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.logout()
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        class: { active: _vm.$route.name === "home" },
+                        attrs: { to: "/" },
                       },
+                      [_vm._v("\n             Home")]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            )
+          : _c(
+              "ul",
+              {
+                staticClass:
+                  "nav col-12 col-md-8 mb-2 justify-content-center mb-md-0",
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        class: { active: _vm.$route.name === "login" },
+                        attrs: { to: "/login" },
+                      },
+                      [_vm._v("Login")]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        class: { active: _vm.$route.name === "register" },
+                        attrs: { to: "/register" },
+                      },
+                      [_vm._v("Register")]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
+        _vm._v(" "),
+        _vm.isLoggedIn
+          ? _c("div", { staticClass: "col-md-3 text-end" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.logout()
                     },
                   },
-                  [_vm._v("Logout")]
-                ),
-              ]),
+                },
+                [_vm._v("Sign-up")]
+              ),
             ])
-          : _c("ul", { staticClass: "nav nav-pills" }, [
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      class: { active: _vm.$route.name === "login" },
-                      attrs: { to: "/login" },
-                    },
-                    [_vm._v("Login")]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      class: { active: _vm.$route.name === "register" },
-                      attrs: { to: "/register" },
-                    },
-                    [_vm._v("Register")]
-                  ),
-                ],
-                1
-              ),
-            ]),
+          : _vm._e(),
       ]),
     ]),
     _vm._v(" "),
