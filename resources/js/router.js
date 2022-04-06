@@ -8,6 +8,10 @@ import Login from './components/auth/LoginComponent.vue'
 import Register from './components/auth/RegisterComponent.vue'
 
 
+/**
+ * @author Jhon Bernal
+ * @description Parametrizacion  de rutas
+ */
 Vue.use(Router)
 
 const router = new Router({
@@ -25,10 +29,10 @@ const router = new Router({
 	]
 });
 
-
-// middleware 
-
-
+/**
+ * @author Jhon Bernal
+ * @description middleware 
+ */
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requireAuth)) {
     if (authorizer.getters.isLoggedIn) {

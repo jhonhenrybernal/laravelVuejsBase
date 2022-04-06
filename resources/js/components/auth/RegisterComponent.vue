@@ -50,6 +50,10 @@
 
 <script>
 	import { mapActions,mapGetters } from 'vuex'
+   /**
+    * @author Jhon Bernal
+    * @description Oyente vuex para enviar peticion al store
+    */
    export default{
     	name:'Register',
     	data(){

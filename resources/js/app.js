@@ -9,6 +9,11 @@ import store from './store';
 import App from './layout/App'
 
 
+
+/**
+ * @author Jhon Bernal
+ * @description Base url para iniciar oyente url global
+ */
 axios.defaults.withCredentials = true
 axios.defaults.baseURL= 'http://localhost:8000/api/'
 const token = localStorage.getItem('token')
@@ -17,8 +22,10 @@ if(token){
 }
 
 
-// Manejo erroes y respuesta token
-
+/**
+ * @author Jhon Bernal
+ * @description Manejo erroes y intercepcion token
+ */
 axios.interceptors.response.use(undefined, function (error) {
   if (error) {
     const originalRequest = error.config;

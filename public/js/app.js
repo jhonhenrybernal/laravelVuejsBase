@@ -5321,6 +5321,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
+/**
+ * @author Jhon Bernal
+ * @description Oyente vuex para enviar peticion al store
+ */
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Login',
   data: function data() {
@@ -5415,6 +5420,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+
+/**
+ * @author Jhon Bernal
+ * @description Oyente vuex para enviar peticion al store
+ */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Register',
@@ -5567,13 +5577,22 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+/**
+ * @author Jhon Bernal
+ * @description Base url para iniciar oyente url global
+ */
+
 (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.withCredentials) = true;
 (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = 'http://localhost:8000/api/';
 var token = localStorage.getItem('token');
 
 if (token) {
   (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = token;
-} // Manejo erroes y respuesta token
+}
+/**
+ * @author Jhon Bernal
+ * @description Manejo erroes y intercepcion token
+ */
 
 
 axios__WEBPACK_IMPORTED_MODULE_0___default().interceptors.response.use(undefined, function (error) {
@@ -5661,6 +5680,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * @author Jhon Bernal
+ * @description Parametrizacion  de rutas
+ */
+
 vue__WEBPACK_IMPORTED_MODULE_5__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
@@ -5683,7 +5707,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
       guest: true
     }
   }]
-}); // middleware 
+});
+/**
+ * @author Jhon Bernal
+ * @description middleware 
+ */
 
 router.beforeEach(function (to, from, next) {
   if (to.matched.some(function (record) {
@@ -5736,6 +5764,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
+/**
+ * @author Jhon Bernal
+ * @description Oyente de transporte de informacion por ayuda de vuex
+ * @tutorial https://vuex.vuejs.org/
+ */
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     status: '',

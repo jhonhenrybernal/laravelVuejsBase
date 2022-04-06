@@ -36,6 +36,10 @@
 
 <script>
 import { mapActions } from 'vuex'
+/**
+ * @author Jhon Bernal
+ * @description Oyente vuex para enviar peticion al store
+ */
    export default{
     name:'Login',
     data(){

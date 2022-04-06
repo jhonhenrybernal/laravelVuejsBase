@@ -4,6 +4,11 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+/**
+ * @author Jhon Bernal
+ * @description Oyente de transporte de informacion por ayuda de vuex
+ * @tutorial https://vuex.vuejs.org/
+ */
 export default new Vuex.Store({
   state: {
     status: '',
