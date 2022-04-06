@@ -1,41 +1,44 @@
+
 require('./bootstrap');
-
-window.Vue = require('vue').default;
-
-import VueRouter from 'vue-router'
-import Vuex from 'vuex'
+import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueRouter from 'vue-router'
+import router  from './router'
+import store from './store';
+import App from './layout/App'
 
-//Routes
-import { routes } from './routes';
 
-Vue.use(VueRouter)
-Vue.use(Vuex)
+axios.defaults.withCredentials = true
+axios.defaults.baseURL= 'http://localhost:8000/api/'
+const token = localStorage.getItem('token')
+if(token){
+  axios.defaults.headers.common['Authorization'] = token
+}
+
+
+// Manejo erroes y respuesta token
+
+axios.interceptors.response.use(undefined, function (error) {
+  if (error) {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+        store.dispatch('logout')
+        return router.push('/login')
+    }
+    else{
+      store.commit('handle_error',JSON.parse(error.response.data.error));
+    }
+  }
+})
+
 Vue.use(VueAxios, axios)
-
-//Register Routes
-export const router = new VueRouter({
-    base: '/',
-    mode: 'history',
-    routes
-});
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- */
-
-Vue.component('app-header', require('./components/layout/HeaderComponent.vue').default);
-Vue.component('app-footer', require('./components/layout/FooterComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.use(VueRouter)
 
 const app = new Vue({
+    store,
+    el: '#app',
+    components: {App},
     router
-}).$mount('#app')
+});
